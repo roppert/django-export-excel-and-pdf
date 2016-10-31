@@ -1,0 +1,58 @@
+[
+{
+  "model": "app.weatherstation",
+  "pk": 1,
+  "fields": {
+    "name": "Mora A"
+  }
+},
+{ "model": "app.temperature", "pk": 1, "fields": { "station": 1, "date": "2016-07-01", "max": "18.40", "mean": "14.00", "min": "11.40" } },
+{ "model": "app.temperature", "pk": 2, "fields": { "station": 1, "date": "2016-07-02", "max": "18.20", "mean": "15.10", "min": "7.40" } },
+{ "model": "app.temperature", "pk": 3, "fields": { "station": 1, "date": "2016-07-03", "max": "18.7", "mean": "12.5", "min": "6" } },
+{ "model": "app.temperature", "pk": 4, "fields": { "station": 1, "date": "2016-07-04", "max": "19.8", "mean": "14", "min": "5.3" } },
+{ "model": "app.temperature", "pk": 5, "fields": { "station": 1, "date": "2016-07-05", "max": "20.8", "mean": "13.4", "min": "7" } },
+{ "model": "app.temperature", "pk": 6, "fields": { "station": 1, "date": "2016-07-06", "max": "20.1", "mean": "14.6", "min": "8.5" } },
+{ "model": "app.temperature", "pk": 7, "fields": { "station": 1, "date": "2016-07-07", "max": "20.4", "mean": "14.9", "min": "4.7" } },
+{ "model": "app.temperature", "pk": 8, "fields": { "station": 1, "date": "2016-07-08", "max": "21.5", "mean": "14.7", "min": "7" } },
+{ "model": "app.temperature", "pk": 9, "fields": { "station": 1, "date": "2016-07-09", "max": "21.5", "mean": "14.2", "min": "9.5" } },
+{ "model": "app.temperature", "pk": 10, "fields": { "station": 1, "date": "2016-07-10", "max": "22.5", "mean": "16.1", "min": "13" } },
+{ "model": "app.temperature", "pk": 11, "fields": { "station": 1, "date": "2016-07-11", "max": "21.8", "mean": "16.4", "min": "12" } },
+{ "model": "app.temperature", "pk": 12, "fields": { "station": 1, "date": "2016-07-12", "max": "20", "mean": "15.6", "min": "11" } },
+{ "model": "app.temperature", "pk": 13, "fields": { "station": 1, "date": "2016-07-13", "max": "18.9", "mean": "15", "min": "13.6" } },
+{ "model": "app.temperature", "pk": 14, "fields": { "station": 1, "date": "2016-07-14", "max": "21.6", "mean": "16.3", "min": "11.7" } },
+{ "model": "app.temperature", "pk": 15, "fields": { "station": 1, "date": "2016-07-15", "max": "20", "mean": "14.7", "min": "6.3" } },
+{ "model": "app.temperature", "pk": 16, "fields": { "station": 1, "date": "2016-07-16", "max": "21", "mean": "14", "min": "11.5" } },
+{ "model": "app.temperature", "pk": 17, "fields": { "station": 1, "date": "2016-07-17", "max": "19.8", "mean": "15.8", "min": "6.6" } },
+{ "model": "app.temperature", "pk": 18, "fields": { "station": 1, "date": "2016-07-18", "max": "20.4", "mean": "14.6", "min": "6.6" } },
+{ "model": "app.temperature", "pk": 19, "fields": { "station": 1, "date": "2016-07-19", "max": "21.8", "mean": "15.1", "min": "13.8" } },
+{ "model": "app.temperature", "pk": 20, "fields": { "station": 1, "date": "2016-07-20", "max": "23.2", "mean": "18.5", "min": "9" } },
+{ "model": "app.temperature", "pk": 21, "fields": { "station": 1, "date": "2016-07-21", "max": "25.8", "mean": "18.9", "min": "7.3" } },
+{ "model": "app.temperature", "pk": 22, "fields": { "station": 1, "date": "2016-07-22", "max": "26", "mean": "18.4", "min": "8.8" } },
+{ "model": "app.temperature", "pk": 23, "fields": { "station": 1, "date": "2016-07-23", "max": "26.2", "mean": "18.4", "min": "14.5" } },
+{ "model": "app.temperature", "pk": 24, "fields": { "station": 1, "date": "2016-07-24", "max": "26.3", "mean": "19.1", "min": "11.5" } },
+{ "model": "app.temperature", "pk": 25, "fields": { "station": 1, "date": "2016-07-25", "max": "26.3", "mean": "17.7", "min": "14.7" } },
+{ "model": "app.temperature", "pk": 26, "fields": { "station": 1, "date": "2016-07-26", "max": "22.5", "mean": "18", "min": "8.9" } },
+{ "model": "app.temperature", "pk": 27, "fields": { "station": 1, "date": "2016-07-27", "max": "22.2", "mean": "15.7", "min": "11.7" } },
+{ "model": "app.temperature", "pk": 28, "fields": { "station": 1, "date": "2016-07-28", "max": "23", "mean": "17.3", "min": "9.5" } },
+{ "model": "app.temperature", "pk": 29, "fields": { "station": 1, "date": "2016-07-29", "max": "22.1", "mean": "16.2", "min": "10.3" } },
+{ "model": "app.temperature", "pk": 30, "fields": { "station": 1, "date": "2016-07-30", "max": "19.9", "mean": "14.7", "min": "6.4" } },
+{ "model": "app.temperature", "pk": 31, "fields": { "station": 1, "date": "2016-07-31", "max": "20.6", "mean": "12", "min": "9.1" } },
+{
+"model": "auth.user",
+"pk": 2,
+"fields": {
+"password": "pbkdf2_sha256$30000$OfCxXY6c57Xc$pXAIguebSJc55END46DBXT14m8MHZVfTMshqM6OMuLk=",
+"last_login": null,
+"is_superuser": true,
+"username": "admin",
+"first_name": "",
+"last_name": "",
+"email": "",
+"is_staff": true,
+"is_active": true,
+"date_joined": "2016-10-31T12:14:40Z",
+"groups": [],
+"user_permissions": []
+}
+}
+]

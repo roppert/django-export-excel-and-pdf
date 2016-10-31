@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Export to PDF/Excel with Django - A small demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- borrow admin style -->
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/widgets.css"/>
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css"/>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- override some style -->
+  <style>
+    html {
+      overflow: hidden;
+      height: 100%;
+      background: #fef0de;
+    }
+    body {
+      overflow: auto;
+      max-height: 100%; max-width: 800px;
+      margin: 0 auto; /* center */ padding: 0 20px;
+      border: 1px solid black; border-width: 0 1px;
+      background: #fefefe;
+      font-size: 14px;
+      font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+    }
+    header, nav, aside, article, footer, main, ol, li {
+      display: flex;
+    }
+    nav, footer, {
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    header, main, article, aside {
+      flex-direction: column;
+    }
+    header a { text-decoration: none; color: #3458B0; }
+    nav a:hover { text-decoration: underline; }
+    header h1 {
+        font-size: 24px;
+        margin-top: 12px;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+    header h2 {
+        font-size: 16px;
+        margin-top: 6px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #969696;
+    }
+    nav { border-bottom: solid 1px black; border-top: solid 1px black;}
+    nav ol { padding-left: 0; margin: 8px 8px 8px 0; }
+    nav ol li a { padding-right: 12px; }
+    aside { float: right; padding: 0; border-left: dashed 1px black; border-bottom: dashed 1px black; max-width: 220px; }
+    aside h1 { font-size: 24px; margin: 24px 0 0 0; padding-left: 12px; }
+    aside p { margin: 12px; }
+    main { align-items: center; padding: 24px; }
+    main table caption h1 { font-size: 24px; margin: 12px 0 8px 0; text-align: left; }
+    main table thead tr th { text-align: right; padding-right: 40px;}
+    main table tbody tr td { text-align: right; font-size: 14px; padding-right: 40px; }
+    footer { width: 100%; border-top: solid 1px black; justify-content: center; }
+    div#search_form { display: flex; width: 100%; justify-content: space-around;}
+    div#search_form div label { display: inline; }
+    div#search_form div input { display: block; }
+    div#search_form div select { display: block }
+    div#search_form div button  { margin-top: 24px; }
+  </style>
+</head>
+
+<body>
+  <header>
+      <h1><a href="/">Export to PDF/Excel with Django</a></h1>
+      <h2>A small demo</h2>
+
+      <nav>
+          <ol>
+              <li><a href="{% url 'admin:index' %}">Demo admin</a></li>
+              <li><a href="http://xlsxwriter.readthedocs.io/">XlsxWriter</a></li>
+              <li><a href="http://www.reportlab.com/documentation/">ReportLab docs</a></li>
+          </ol>
+      </nav>
+  </header>
+
+  <aside>
+      <h1>About</h1>
+      <p>A simple demo showing how to export data as Excel and PDF from Django.</p>
+      <p>Default dataset contains data for station Mora A and month of July 2016.</p>
+      <P>Default superuser is admin/admin</p>
+      <p>Latest version of this demo can be found on <a href="https://github.com/roppert/django-export-excel-and-pdf">Github</a>.</p>
+      <p>The test data used comes from <a href="http://opendata.smhi.se/apidocs/">SMHI Open Data</a></p>
+      <p>Based in part on <a href="https://assist-software.net/blog/how-export-excel-files-python-django-application">How to export Excel files in a Python/Django application</a> and <a href="https://assist-software.net/blog/how-create-pdf-files-python-django-application-using-reportlab">How to create PDF files in a Python/Django application using ReportLab</a>. Check those out for some more example on elements and objects to add to excel/pdf document.</p>
+  </aside>
+
+  <form method="post">
+  {% csrf_token %}
+  <main>
+    <div id="search_form">
+        {% for field in form %}
+            <div>
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        <div class="buttons">
+            <button class="small" type="submit">Filter</button>
+        </div>
+    </div>
+    <table>
+      <caption>
+      </caption>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Min T.</th>
+          <th>Mean T.</th>
+          <th>Max T.</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.date|date:"Y-m-d" }}</td>
+            <td>{{ row.min }}</td>
+            <td>{{ row.mean }}</td>
+            <td>{{ row.max }}</td>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p>
+        <button name="excel">Excel</button>
+        <button name="pdf">PDF</button>
+    </p>
+  </main>
+  </form>
+
+  <footer>
+      <p><small>By <a href="http://inb4.se">roppert</a></small></p>
+  </footer>
+
+  <script>  
+    var django = django || {};
+    django.jQuery = $;
+  </script>  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+        $("#id_date_from").datepicker({ dateFormat: "yy-mm-dd" });
+        $("#id_date_to").datepicker({ dateFormat: "yy-mm-dd" });
+    });
+  </script>
+</body>
+</html>

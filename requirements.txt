@@ -1,0 +1,4 @@
+django
+xlsxwriter
+pillow
+reportlab
