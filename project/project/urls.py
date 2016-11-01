@@ -15,11 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.views import i18n
 
 
 urlpatterns = [
     url(r'^', include('app.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^admin/jsi18n', i18n.javascript_catalog),
 ]
