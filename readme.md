@@ -18,11 +18,11 @@ This demo is developed on Linux but should run without problem on any platform a
 
 ## Install and  run
 
-  1. git clone https://github.com/roppert/django-export-excel-and-pdf.git
-  1. virtualenv --python=python3 venv
-  1. source venv/bin/activate
-  1. pip install -r requirements.txt
-  1. cd project
-  1. ./manage.py migrate
-  1. ./manage.py loaddata data
-  1. ./manage.py runserver
+  1. `git clone https://github.com/roppert/django-export-excel-and-pdf.git`
+  1. `virtualenv --python=python3 venv`
+  1. `source venv/bin/activate`
+  1. `pip install -r requirements.txt`
+  1. `cd project`
+  1. `./manage.py migrate`
+  1. `./manage.py loaddata data`
+  1. `./manage.py runserver`
